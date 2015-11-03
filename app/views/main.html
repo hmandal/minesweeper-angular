@@ -1,23 +1,10 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+<table border = "1">
+    <tr ng-repeat="row in minefield.rows">
+        <td ng-repeat="spot in row.spots" ng-click="!(isWinMessageVisible || isLoseMessageVisible) && uncoverSpot(spot)">
+            <div ng-class="{covered: spot.isCovered, empty: !spot.isCovered, mine: !spot.isCovered && spot.content == 'mine', no_mine: !spot.isCovered && spot.content == 'empty', number{{spot.content}}: !spot.isCovered && !isNaN(spot.content)}"></div>
+        </td>
+    </tr>
+</table>
+<h3 ng-if="isWinMessageVisible">You won!</h3>
+<h3 ng-if="isLoseMessageVisible">Sorry, You lost!</h3>
+<br />
