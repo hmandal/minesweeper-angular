@@ -1,7 +1,7 @@
 <table border = "1">
     <tr ng-repeat="row in minefield.rows">
-        <td ng-repeat="spot in row.spots" ng-click="!(isWinMessageVisible || isLoseMessageVisible) && uncoverSpot(spot)">
-            <div ng-class="{covered: spot.isCovered, empty: !spot.isCovered, mine: !spot.isCovered && spot.content == 'mine', no_mine: !spot.isCovered && spot.content == 'empty', number{{spot.content}}: !spot.isCovered && !isNaN(spot.content)}"></div>
+        <td ng-repeat="spot in row.spots" ng-right-click="!(isWinMessageVisible || isLoseMessageVisible) && flagSpot(spot)" ng-click="!(isWinMessageVisible || isLoseMessageVisible) && uncoverSpot(spot)">
+            <div ng-class="{covered: spot.isCovered, empty: !spot.isCovered, mine: !spot.isCovered && spot.content == 'mine', no_mine: !spot.isCovered && spot.content == 'empty', number{{spot.content}}: !spot.isCovered && !isNaN(spot.content), flagged: spot.isCovered && spot.isFlagged == true}"></div>
         </td>
     </tr>
 </table>

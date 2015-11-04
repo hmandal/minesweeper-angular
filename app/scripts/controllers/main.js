@@ -152,6 +152,18 @@ angular.module('minesweeperAngularApp').controller('MainCtrl', ['$scope', functi
         }
         return false;
     }
+    // $(document).ready(function() {
+    //     document.oncontextmenu = function() {
+    //         return false;
+    //     };
+    //     $(document).mousedown(function(e) {
+    //         if (e.button == 2) {
+    //             // alert('Right mouse button!');
+    //             return false;
+    //         }
+    //         return true;
+    //     });
+    // });
     $scope.uncoverSpot = function(spot) {
         spot.isCovered = false;
         // $scope.isLoseMessageVisible = false; //test
@@ -162,5 +174,8 @@ angular.module('minesweeperAngularApp').controller('MainCtrl', ['$scope', functi
             // spot.isCovered = true; //test and also cheat to win game everytime :)
         }
     };
+    $scope.flagSpot = function(spot) {
+        spot.isFlagged = spot.isFlagged == true ? false : true;
+    }
     $scope.minefield = createMinefield();
 }]);
